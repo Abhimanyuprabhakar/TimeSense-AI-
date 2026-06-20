@@ -38,7 +38,7 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white tracking-wide">Connect</h3>
           <div className="flex items-center space-x-5 mt-3">
             <a
-              href="https://github.com/nst-sdc/Screentime-recoder"
+              href="https://github.com/Abhimanyuprabhakar/screentime-recorder"
               target="_blank"
               rel="noreferrer"
               className="flex items-center space-x-2 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200"
