@@ -5,11 +5,12 @@ const EXTENSION_CONFIG = {
     PRODUCTION: "production"
   },
 
-  // Backend API URL (use 127.0.0.1 to avoid IPv6 localhost conflicts)
-  API_URL: "http://127.0.0.1:3000",
+  // Backend API URL — uses production Render URL
+  // The extension detects dev locally via health check, but defaults to production
+  API_URL: "https://screentime-recorder.onrender.com",
 
   // Primary frontend URL for opening login/dashboard pages
-  FRONTEND_URL: "http://127.0.0.1:5173",
+  FRONTEND_URL: "https://screentime-recorder.vercel.app",
 
   // All frontend URLs for token sync (accept tokens from any of these origins)
   FRONTEND_URLS: [
@@ -17,7 +18,7 @@ const EXTENSION_CONFIG = {
     "http://localhost:5174",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
-    "https://screentime-recoder.vercel.app"
+    "https://screentime-recorder.vercel.app"
   ],
 
   // Backend configuration by environment
@@ -27,7 +28,7 @@ const EXTENSION_CONFIG = {
       apiPath: "/api/activity/log"
     },
     production: {
-      url: "https://screentime-recoder.onrender.com",
+      url: "https://screentime-recorder.onrender.com",
       apiPath: "/api/activity/log"
     }
   },
@@ -36,12 +37,12 @@ const EXTENSION_CONFIG = {
   ALLOWED_HOSTNAMES: [
     "localhost",
     "127.0.0.1",
-    "screentime-recoder.vercel.app",
-    "screentime-recoder.onrender.com"
+    "screentime-recorder.vercel.app",
+    "screentime-recorder.onrender.com"
   ]
 };
 
-// Environment detection function
+// Environment detection — checks if local backend is reachable
 function detectEnvironment() {
   return fetch("http://127.0.0.1:3000/api/health", {
     method: "GET",
